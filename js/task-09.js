@@ -8,7 +8,8 @@ const refs = {
   body: document.querySelector("body"),
 };
 function colorChanger() {
-  refs.color.textContent = getRandomHexColor();
-  refs.body.style.backgroundColor = getRandomHexColor();
+  const color = getRandomHexColor();
+  refs.color.textContent = color;
+  refs.body.style.backgroundColor = color;
 }
 refs.changeColor.addEventListener("click", colorChanger);

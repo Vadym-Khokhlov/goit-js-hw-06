@@ -3,12 +3,13 @@ const inputRefLength = inputRef.getAttribute("data-length");
 const inputLengthChecker = (event) => {
   const isValid = event.currentTarget.value.length === Number(inputRefLength);
   if (isValid) {
-    event.currentTarget.classList.add("valid");
-    event.currentTarget.classList.remove("invalid");
-  } else {
-    event.currentTarget.classList.remove("valid");
-    event.currentTarget.classList.add("invalid");
-  }
+    classChanger("valid", "invalid");
+  } else classChanger("invalid", "valid");
 };
 
 inputRef.addEventListener("blur", inputLengthChecker);
+
+function classChanger(newClass, oldClass) {
+  inputRef.classList.add(newClass);
+  inputRef.classList.remove(oldClass);
+}
